@@ -1,0 +1,56 @@
+now we shall start learning javascript
+
+
+C1-> variables 
+var -> function scoped
+let -> block scoped
+const-> cannot be redeclared
+
+
+static                           dynamic language
+c++                              javascript
+variables can change datatypes   while here cannot
+
+
+dot and bracket notation
+
+
+callback and callback hell
+
+
+promise
+
+readfile
+
+string
+
+class
+
+json
+
+object
+
+date object
+
+loupe*** is the software to see the working of javascript
+
+
+so javascript is single thread still it is asynchronous
+
+//asynchronous work it give to the browser or equivalent in node
+//and main thread do it's own work
+//while these asynchornous work are completed these are stored in callback queue
+//after completion of main thread these work task also executed from callback queue
+//call stack-> here the tasks are stored that are under execution
+//when call stack empty it execute tasks from callback queue
+
+
+synchronous                         asynchrounous 
+execute line by line                not
+normal                              fetch, fs, setTimeout
+
+
+
+
+
+//fs.write file -> do not update only write
