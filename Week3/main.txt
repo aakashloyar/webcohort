@@ -1,0 +1,7 @@
+EB53EcSIczKtR2eG-> mongostirng connection password
+
+
+mongodb+srv://aakashloyar:asdf;lkj@clusterch.uev0g.mongodb.net/
+
+
+postgresql://Clust1_owner:WCDygiR7vFX5@ep-silent-glitter-a1vf1nc0.ap-southeast-1.aws.neon.tech/Clust1?sslmode=require

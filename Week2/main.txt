@@ -1,0 +1,49 @@
+ecmascript-> standard on which javascript is based
+standaradized by ecma international
+
+common js browser->
+v8, spidermonkey
+
+nodejs
+library allow us to write http server or backend in javascript
+written in c++,c -> to make it fast
+
+bun
+competitor to nodejs
+new and bloody fast written in zig language
+
+
+
+some basic commands
+vi -> vim -> more advanced
+//addition only in insert mode i 
+//:wq! save and exit
+//:q! exit
+//:w! save
+
+
+cat-> to print file
+
+rm->remove file
+
+rm -rf->remove directory 
+rm -r-> |
+remove recursive force
+
+
+ls -l ->get list of all files and information
+
+
+chmod -> to edit configurations of files 
+r-> read w-> write x-> execute
+
+-rw-r--r--  -> now -rw-> owner can read and write -r-> group members can read only  -r-> all other can read only
+chmod u/g/o +- r/w/x filename   ********
+u-> user g-> group o-> other 
+r-> read w-> write x-> execute
+
+
+grep-> playing with text
+grep word a.txt  -> give the occurrence of word in a.txt
+grep [options] "pattern" filename
+
