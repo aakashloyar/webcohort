@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function sum() {
+            console.log("clicked");
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+            const uri = `http://localhost:3000/sum?a=${a}&b=${b}`;
+            const response = await fetch(uri);
+            const data = await response.json();
+            const sum = data.result;
+            console.log(response);
+            document.getElementById('result').innerHTML = sum;
+        }
+
+        let time;
+        async function func(e) {
+            const inputValue = e.target.value; // Get the value of the input that triggered the event
+            console.log(`Input changed: ${inputValue}`);
+            clearTimeout(time);
+            time = setTimeout(sum, 5000);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        a= <input type="text" id="a" onchange="func(event)" placeholder="Enter a"><br>
+        b= <input type="text" id="b" onchange="func(event)" placeholder="Enter b"><br>
+        result= <span id="result"></span><br>
+    </div>
+</body>
+</html>

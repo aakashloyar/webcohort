@@ -1,0 +1,7 @@
+//what we learnt ->
+//debouncing and throtolling-> search bar suggestion
+
+//dom
+
+//e.target.value -> syntax
+
