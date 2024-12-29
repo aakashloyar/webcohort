@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function add() {
+        const title = document.getElementById('title').value;
+        const desciption = document.getElementById('desciption').value;
+        const uri = `http://localhost:3000/add?title=${title}&desciption=${desciption}`;
+        const child=document.createElement('div');
+        child.appendChild(document.createElement('div').innerHTML=title);
+        child.appendChild(document.createElement('div').innerHTML=desciption);
+        console.log(child);
+        document.getElementById('result').appendChild(child);
+
+    }
+</script>
+<body>
+    <div class="container">
+        <div class="add">
+            <input type="text" id="title" placeholder="title"><br>
+            <input type="text" id="desciption" placeholder="description"><br>
+            <button onclick="add()">Add</button>
+            <div id="result"></div>
+
+        </div>
+    </div>
+</body>
+</html>
