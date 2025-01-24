@@ -1,0 +1,171 @@
+//now we shall see one react
+//first of all use effect hook we are going to see
+
+
+//react.strictmode
+it makes your application mount unmount and mount again
+during development side
+it does not happen during production side
+The double mounting in Strict Mode is there to catch bugs early during development.
+If your effects are clean and well-handled, this behavior won't cause issues in production.
+
+
+//passing a function as reference or as a value
+func1();-> as a value-> this will call your function and want to get it's value
+use when you want it to be called immediately when rendering
+
+
+func1-> as  a reference -> this will just get the function and call when ever the even happen
+
+
+if a function returning 1 then it is a number for react not a function when you call it using value
+
+
+due to strict mode a function can be called twice to see the updates
+
+
+
+Here's a clear distinction between a React component and a regular function with examples:
+
+1. React Component
+A React component is used to define reusable UI elements. Components can be functional or class-based but should always:
+
+Have a name that starts with a capital letter.
+Return JSX (React's syntax for defining UI).
+Be used as <ComponentName />.
+Example of a functional React component:
+
+javascript
+Copy
+Edit
+function Greeting({ name }) {
+  return <h1>Hello, {name}!</h1>; // JSX to display "Hello, {name}!"
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <Greeting name="Aakash" /> {/* Render the Greeting component */}
+    </div>
+  );
+}
+Here:
+
+Greeting is a React component because it returns JSX.
+It’s used as <Greeting name="Aakash" /> in the App component.
+2. Regular Function
+A regular function is just a block of reusable logic that may or may not return a value. It is not React-specific and cannot be used in JSX directly unless you invoke it as {myFunction()}.
+
+Example of a regular function:
+
+javascript
+Copy
+Edit
+function addNumbers(a, b) {
+  return a + b; // Returns the sum of two numbers
+}
+
+// Usage
+function App() {
+  const sum = addNumbers(2, 3); // Invoke the function and store the result
+  return (
+    <div>
+      <p>The sum is: {sum}</p>
+    </div>
+  );
+}
+Here:
+
+addNumbers is a regular function because it simply performs logic (adding numbers) and returns a value, not JSX.
+It is invoked directly (addNumbers(2, 3)) inside the App component.
+Combining Both in One Example
+javascript
+Copy
+Edit
+// Regular Function
+function calculateSquare(number) {
+  return number * number; // Logic to calculate the square
+}
+
+// React Component
+function SquareDisplay({ number }) {
+  const square = calculateSquare(number); // Call the regular function
+  return <p>The square of {number} is {square}.</p>; // JSX
+}
+
+
+Summary of Key Differences
+React Component|	Regular Function
+Returns JSX|	Returns a value (not JSX)
+Used in JSX as <ComponentName />|	Called like functionName()
+Capitalized name (e.g., MyComponent)|	Usually lowercase (e.g., myFunc)
+Can have React hooks (useState, etc.)|	Cannot use React hooks
+
+
+sideffects-> fetch settimeout setinterval
+
+
+
+
+usecallback
+
+const Call=memo(({a})=>{
+  console.log('call');
+  return (
+    <>
+    <p>Hello guys </p>
+    </>
+  )
+})
+
+const Temp=useCallback(()=> {
+   console.log('temp');
+   return (
+     <>
+     <p>Hello guys {check} </p>
+     </>
+   )
+ } ,[check])
+
+  function Temp() {
+    console.log('temp');
+  }
+
+
+//memo let you do memorise ->not rerenders until props in it does not change
+when function a functin b return same
+but they will not be equal bcz of their reference 
+so useCallback allow us to call function when something changes
+
+
+
+const Call=memo(()=>{
+  console.log('call');
+  return (
+    <>
+    <p>Hello guys</p>
+    </>
+  )
+  })
+
+//using this inside App or outside app has a lot of difference 
+
+//if used outside then it does not rerender until props arenot changed
+
+//if used inside it always rerender bcz when app rerender every variable refence is changed
+
+
+
+usememo
+
+let res=useMemo(()=>{
+    console.log("sum")
+    for(let i=0;i<check;i++) res+=i;
+  },[check])
+
+//to make long computation not repeat until required
+
+
+***the variable using memo wil be redeclared when called with app rerender while the hooks does not
+

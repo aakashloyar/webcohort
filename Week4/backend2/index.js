@@ -30,6 +30,16 @@ app.get('/notes',async (req,res)=>{
     const notes=await Note.find();
     res.send(notes);
 })
+app.delete('/delete',async (req,res)=>{
+    try {
+        const id=req.body._id;
+        await Note.findByIdAndDelete(id);
+        res.send({message:"Note deleted successfully"});
+    } catch {
+        res.send({message:"Error deleting note"});
+    }
+    
+})
 mongoose.connect(mongo);
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);

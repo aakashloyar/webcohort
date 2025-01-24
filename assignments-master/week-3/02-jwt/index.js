@@ -15,6 +15,11 @@ const jwtPassword = 'secret';
  */
 function signJwt(username, password) {
     // Your code here
+    if (username === null || password === null||password.length<6 ||!username.includes('@')) {
+        return null;
+    }
+    const token =jwt.sign({username,password},jwtPassword,{expiresIn:'1h'});
+    return token
 }
 
 /**
@@ -27,6 +32,12 @@ function signJwt(username, password) {
  */
 function verifyJwt(token) {
     // Your code here
+    try {
+        const decoded=jwt.verify(token,jwtPassword);
+        return true;
+    } catch(error) {
+        return false;
+    }
 }
 
 /**
@@ -38,7 +49,21 @@ function verifyJwt(token) {
  */
 function decodeJwt(token) {
     // Your code here
+    try {
+        const parts = token.split('.');
+        if (parts.length !== 3) {
+            return false; // Not a valid JWT format
+        }
+
+        // Decode the payload (second part of the token)
+        const payloadBase64 = parts[1];
+        const payloadJson = atob(payloadBase64); // Decode from Base64 to JSON string
+        return JSON.parse(payloadJson); // Parse JSON string into an object
+    } catch(error) {
+        return false;
+    }
 }
+
 
 
 module.exports = {

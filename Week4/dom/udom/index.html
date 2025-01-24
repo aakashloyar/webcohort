@@ -42,12 +42,16 @@
         console.log(arr)
         document.getElementById('result').innerHTML=arr.join("");
     }
+    // function delete() {
+
+    // }
     function card(title,description,id) {
         return `
         <div class="note">
             <h2>${title}</h2>
             <p>${description}</p>
             <p>${id}</p>
+            <button onclick="${delete(id)}">Delete</button>
         </div>
     `;
     }
