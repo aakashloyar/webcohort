@@ -169,3 +169,20 @@ let res=useMemo(()=>{
 
 ***the variable using memo wil be redeclared when called with app rerender while the hooks does not
 
+
+
+//setstate as a arrow function
+
+// function decrement() {
+  //   setCount(count-1);
+  //   setCount(count-1);
+  //   //now this will not work bcz react will batch the state updates
+  // }
+  function decrement() {
+    setCount((prev)=> prev-1);
+    setCount((prev)=> prev-1);//this will work
+  }
+
+
+var is function scoped
+let is block scoped

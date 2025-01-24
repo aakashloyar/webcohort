@@ -25,11 +25,23 @@ function App() {
   useEffect(()=>{
     console.log('useeffect');
   },[count]);
+
+
+  // function decrement() {
+  //   setCount(count-1);
+  //   setCount(count-1);
+  //   //now this will not work bcz react will batch the state updates
+  // }
+  function decrement() {
+    setCount((prev)=> prev-1);
+    setCount((prev)=> prev-1);//this will work
+  }
   return (
     
     <>
       Hello
       <button onClick={lele}>Click me</button>
+      <button onClick={decrement}>decrease</button>
       <Call/>
       <p>{count}</p>
       <p>{res}</p>
