@@ -1,4 +1,4 @@
-import {useRecoilState,useRecoilValue,useSetRecoilState,RecoilRoot} from 'recoil'
+import {useRecoilState,useRecoilValue,useSetRecoilState,RecoilRoot,useRecoilStateLoadable} from 'recoil'
 import {countState,isEven,Adq,Todofamily} from './store/atoms/count'
 import './App.css'
 
@@ -19,17 +19,17 @@ function App() {
 function Show() {
   const count=useRecoilValue(countState);
   const even=useRecoilValue(isEven);
-  //const res=useRecoilValue(Adq);
+  const res=useRecoilStateLoadable(Adq);
   console.log('show');
   return (
     <>
-    <Todo id={1}/>
+    {/* <Todo id={1}/>
     <Todo id={2}/>
     <Todo id={2}/>
-    <Todo id={3}/>
+    <Todo id={3}/> */}
     {/* {even?<p>Even</p>:<p>Odd</p>}
     <p>{count}</p> */}
-    {/* <p>{res}</p> */}
+    <p>{res}</p>
     </>
   )
 }
