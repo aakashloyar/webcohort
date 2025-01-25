@@ -230,5 +230,16 @@ export default CountContext
   //now we have to learn 
   asynchronous data queries
   atomsfamily, selectorfamily
+
   
-  
+//atom family
+suppose you have todos
+you want to use atom for them 
+but if you use 1 atom for all 
+then if 1 changes then everyone rerenders
+to avoid this we must give each with differenent atom
+where atomfamily come into the picture that make dynamic atoms 
+
+
+atoms cannot have asynchronous call
+so for backend calls use selector family

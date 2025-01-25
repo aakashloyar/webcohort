@@ -1,4 +1,7 @@
-import {atom,selector} from 'recoil'
+import {atom,selector,atomFamily,selectorFamily} from 'recoil'
+import {Todos} from '../../Todos'
+import axios from 'axios'
+console.log(Todos);
 export const countState=atom({
     key:'countState',//unique id
     default:0
@@ -35,3 +38,24 @@ async function res() {
         },5000);
     })
 }
+export const Todofamily=atomFamily({
+    key:'TodoFamily',
+    default:id=>{
+        console.log(id);
+        // Todos.find((todo)=>todo.id===id);
+        let res=Todos.find(todo=>todo.id===id);
+        console.log("Here is response "+res);
+        return res;
+    }
+})
+
+export const todosAtomFamily = atomFamily({
+    key: 'todosAtomFamily',
+    default: selectorFamily({
+      key: "todoSelectorFamily",
+      get: (id) => async ({get}) => {
+        const res = await axios.get(`https://sum-server.100xdevs.com/todo?id=${id}`);
+        return res.data.todo;
+      },
+    })
+})
