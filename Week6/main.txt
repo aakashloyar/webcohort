@@ -243,3 +243,22 @@ where atomfamily come into the picture that make dynamic atoms
 
 atoms cannot have asynchronous call
 so for backend calls use selector family
+
+useRecoilStateLoadable
+
+
+//axios 
+
+const response=await axios.method(
+  "url",
+  {
+    //body
+    name :"aakash"
+  },
+  {
+    headers:{
+      Auth:"aalu"
+    }
+  }
+)
+in case of get no body is there 
