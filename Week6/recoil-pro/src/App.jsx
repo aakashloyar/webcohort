@@ -1,5 +1,5 @@
 import {useRecoilState,useRecoilValue,useSetRecoilState,RecoilRoot} from 'recoil'
-import {countState,isEven} from './store/atoms/count'
+import {countState,isEven,Adq} from './store/atoms/count'
 import './App.css'
 
 function App() {
@@ -19,11 +19,13 @@ function App() {
 function Show() {
   const count=useRecoilValue(countState);
   const even=useRecoilValue(isEven);
+  const res=useRecoilValue(Adq);
   console.log('show');
   return (
     <>
     {even?<p>Even</p>:<p>Odd</p>}
     <p>{count}</p>
+    <p>{res}</p>
     </>
   )
 }

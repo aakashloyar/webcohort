@@ -226,3 +226,9 @@ export default CountContext
 
   //what is selector -> it does not have it's own property derived from others
   
+
+  //now we have to learn 
+  asynchronous data queries
+  atomsfamily, selectorfamily
+  
+  

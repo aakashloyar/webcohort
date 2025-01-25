@@ -10,3 +10,28 @@ export const isEven=selector({
         return count%2===0;
     }
 })
+export const Fetch=atom({
+    key:'fetch',
+    default:selector({
+        key:'sel',
+        get:async()=>{
+            const ans=await res();
+           // console.log(ans);
+            return 1;
+        }
+    })
+})
+export const Adq=selector({
+    key:'adq',
+    get:({get})=>{
+        const fetc=get(Fetch);
+        return fetc;
+    }
+})
+async function res() {
+    const x=await new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(1);
+        },5000);
+    })
+}
