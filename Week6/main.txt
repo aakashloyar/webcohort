@@ -197,3 +197,24 @@ let nums=arr.map((item)=>{
     return item*2;
 })
 //.map
+
+
+
+//react tree
+
+put the useful variable in lca
+if a child renders then it's parent renders 
+bcz if parent render then it's child also renders 
+
+
+//prop drilling 
+//context api 
+
+
+//creating context 
+const CountContext=createContext(0);
+export default CountContext
+//passing context the value ->
+
+ <CountContext.Provider value={count}>     </CountContext.Provider>
+  const count=useContext(CountContext);
