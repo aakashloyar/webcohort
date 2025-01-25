@@ -218,3 +218,11 @@ export default CountContext
 
  <CountContext.Provider value={count}>     </CountContext.Provider>
   const count=useContext(CountContext);
+
+
+
+  //recoil 
+  now you will deal with atoms
+
+  //what is selector -> it does not have it's own property derived from others
+  
