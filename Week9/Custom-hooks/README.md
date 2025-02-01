@@ -80,3 +80,8 @@ function Profile() {
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
   return <div>hello, you have {data.todos.length} todos!</div>
+
+
+
+  //now we will learn add and remove eventlistner
+  
