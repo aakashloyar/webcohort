@@ -1,2 +1,7 @@
 style={{display:'flex', justifyContent:''}}
 //syntax
+
+
+//why we are using content-type:application/json -> just to tell that we are sending the request in form of json
+
+//express.json is used to convert json to javascript object
