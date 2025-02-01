@@ -2,8 +2,12 @@ import {useEffect,useState} from 'react'
 
 
 function App() {
+  const [count, setCount] = useState(0);
   const [inputValue, setInputValue] = useState('');
-  const debouncedValue = useDebounce(inputValue, 1); // 500 milliseconds debounce delay
+  const debouncedValue = useDebounce(inputValue, 1);// 500 milliseconds debounce delay
+  useInterval(() => {
+    setCount(c => c + 1);
+  }, 1000)
 
   // Use the debouncedValue in your component logic, e.g., trigger a search API call via a useEffect
 
@@ -16,6 +20,7 @@ function App() {
       placeholder="Search..."
     />
     {debouncedValue}
+    {count}
     </>
    
 
@@ -35,5 +40,12 @@ function useDebounce(value,n) {
   return a;
 }
 
+const useInterval = (callback, delay) => {
+  useEffect(() => {
+    const intervalId = setInterval(callback, delay);
+
+    return () => clearInterval(intervalId);
+  }, [callback, delay]);
+};
 
 export default App
