@@ -33,6 +33,26 @@ function createUserTable() {
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
   `);
+        yield client.end();
+        console.log(result);
+    });
+}
+function createAddressTable() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield client.connect();
+        const result = yield client.query(`
+    CREATE TABLE IF NOT EXISTS addresses (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    pincode VARCHAR(20),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  );
+  `);
+        yield client.end();
         console.log(result);
     });
 }
@@ -42,4 +62,5 @@ function createUserTable() {
 //   console.log('hi');
 //   console.log(result)
 // }
-createUserTable();
+//createUserTable();
+createAddressTable();

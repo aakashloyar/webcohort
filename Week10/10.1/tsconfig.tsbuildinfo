@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/put.ts","./src/select.ts"],"version":"5.7.2"}
+{"root":["./src/index.ts","./src/put.ts","./src/select.ts","./src/transactionquery.ts"],"version":"5.7.2"}
