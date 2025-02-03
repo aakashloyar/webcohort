@@ -13,33 +13,28 @@ const pg_1 = require("pg");
 const client = new pg_1.Client({
     connectionString: 'postgresql://neondb_owner:npg_Qgk2h5zKoUEM@ep-floral-dawn-a49ekg7n-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require'
 });
-// const client =new Client({
-//   user: 'neondb_owner',
-//   password: 'npg_Qgk2h5zKoUEM',
-//   host: 'ep-floral-dawn-a49ekg7n-pooler.us-east-1.aws.neon.tech',
-//   port: 5334,
-//   database: 'neondb',
-// })
-function createUserTable() {
+function Quer() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield client.connect();
-        const result = yield client.query(`
-    CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,
-      username VARCHAR(255) NOT NULL UNIQUE,
-      name VARCHAR(255),
-      email VARCHAR(255) UNIQUE NOT NULL,
-      password VARCHAR(255) NOT NULL,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-  `);
-        console.log(result);
+        try {
+            yield client.connect();
+            const query = 'SELECT * FROM users';
+            const result = yield client.query(query);
+            if (result.rows.length > 0) {
+                console.log('User found:', result.rows[0]); // Output user data
+                return result.rows[0]; // Return the user data
+            }
+            else {
+                console.log('No user found with the given email.');
+                return null; // Return null if no user was found
+            }
+        }
+        catch (err) {
+            console.error('Error during fetching user:', err);
+            throw err; // Rethrow or handle error appropriately
+        }
+        finally {
+            yield client.end(); // Close the client connection
+        }
     });
 }
-// async function print() {
-//   console.log('req');
-//   const result = await client.query('SELECT * FROM USERS;')
-//   console.log('hi');
-//   console.log(result)
-// }
-createUserTable();
+Quer();

@@ -4,6 +4,13 @@ const client = new Client({
   connectionString: 'postgresql://neondb_owner:npg_Qgk2h5zKoUEM@ep-floral-dawn-a49ekg7n-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require'
 });
 
+// const client =new Client({
+//   user: 'neondb_owner',
+//   password: 'npg_Qgk2h5zKoUEM',
+//   host: 'ep-floral-dawn-a49ekg7n-pooler.us-east-1.aws.neon.tech',
+//   port: 5334,
+//   database: 'neondb',
+// })
 
 
 async function createUserTable(){
@@ -20,10 +27,12 @@ async function createUserTable(){
   `);
   console.log(result);
 }
-async function print() {
-  const result = await client.query('SELECT * FROM USERS;')
-  console.log(result)
-}
+// async function print() {
+//   console.log('req');
+//   const result = await client.query('SELECT * FROM USERS;')
+//   console.log('hi');
+//   console.log(result)
+// }
+
 
 createUserTable();
-print();
