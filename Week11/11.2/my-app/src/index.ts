@@ -1,9 +1,31 @@
 import { Hono } from 'hono'
+import { PrismaClient } from '@prisma/client/edge'
+import { withAccelerate } from '@prisma/extension-accelerate'
 
-const app = new Hono()
+export interface Env {
+  DATABASE_URL:string
+}
 
-app.get('/', (c) => {
-  return c.text('Hello  Aakash!')
-})
+export default {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
+    const prisma = new PrismaClient({
+      datasourceUrl: env.DATABASE_URL,
+    }).$extends(withAccelerate())
 
-export default app
+    const response = await prisma.user.create({
+      data: {
+        name:'String',
+        email:'String',
+	      password: 'String'
+      },
+    })
+
+    console.log(JSON.stringify(response))
+
+    return new Response(`request method: ${request.method}!`)
+  }
+}
