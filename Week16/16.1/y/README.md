@@ -82,3 +82,62 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+
+
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
+
+
+monorepo vs turborepo
+turborepo are advanced monorepo they are better than monorepo
+turborepo also let us do catching
+
+//build-> converting codes
+
+->92
+//now if we call npm run build then every one which has build in their package.json will be called 
+
+->95 
+outputs-> these are folders which must be catched or not
+
+-> lint -> used to correct syntax
+
+-> on doing dev -> cache is false
+persistant -> true means projects cannot depends on each other
+
+
+generators ->
+if in the folder structure you will in package/ui/src/turbo-> generators are there 
+
+these are to generate new componenet at src
+use this command ->npx gen react-component
+these are used to generate component in 1 single command
+
+
+we have a common folder that is used by both frontend and backend
+you can see how we are using it
+
+
+
+
+
