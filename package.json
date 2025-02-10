@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
     "recoil": "^0.7.7"
   }
 }
