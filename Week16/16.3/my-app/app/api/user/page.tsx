@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth"
-
+import {Next_Auth} from "../../lib/auth"
 async function getUser() {
-  const session = await getServerSession();
+  const session = await getServerSession(Next_Auth);
   return session;
 }
 
@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <div>
-      {JSON.stringify(session?.user?.name)}
+      {JSON.stringify(session)}
     </div>
   );
 }

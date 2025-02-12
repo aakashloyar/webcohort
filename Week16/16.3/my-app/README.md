@@ -82,5 +82,8 @@ there are 2 types of callback-> session and jwt
 //so client side start sending id
 //but not server
 
+//now you can do google authentication as well as github authentication
+//if you donot want to use custom page use your own
+
 
 
