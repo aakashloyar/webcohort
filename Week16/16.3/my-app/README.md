@@ -34,3 +34,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+//cookie are used to authenticate 
+//they automatically sent on each request
+//properties
+//can be sent only on secure requests
+
+//3 settings of cookies
+//strict-> property to make these cookies sent only from cross origin site
+//lax-> property as strict but any website is giving link to original website then directly 
+signin if already signed it as it can send cookie
+//none-> can be sent from any site-> can lead to cbfr attacks
+cbfr attacks->other site can send request as cookie is already stored and it will go with every request
+so other website can send some dangerous
