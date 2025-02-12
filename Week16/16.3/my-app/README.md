@@ -48,3 +48,39 @@ signin if already signed it as it can send cookie
 //none-> can be sent from any site-> can lead to cbfr attacks
 cbfr attacks->other site can send request as cookie is already stored and it will go with every request
 so other website can send some dangerous
+
+
+//next file
+
+import { NextRequest,NextResponse } from "next/server";
+
+export async function GET(req:NextRequest,arg:any) {
+    const { nextAuth } = await arg.params; // Await the params
+    //this will prime all routes after auth
+    //[...xxx] -> this is to make it understand that this is not counted in routes
+    //this is only counted to next routes
+    console.log(nextAuth);
+    return NextResponse.json({
+        message: "asdf"
+    });
+}
+
+
+
+
+//now as we have used recoilroot and wrapped our application in that
+//now we have to wrap our application in sessionprovider
+//but it will show that react context are not available in server component
+//so we have to use useclient and make a another file provider.tsx
+//session is used to get user details
+//client side->useSession
+//server side->getServerSession()
+
+//these will give us access to only some of the information 
+//to get more we must use callback
+there are 2 types of callback-> session and jwt
+//so client side start sending id
+//but not server
+
+
+
