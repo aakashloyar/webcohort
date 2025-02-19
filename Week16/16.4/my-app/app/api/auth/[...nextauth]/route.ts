@@ -46,3 +46,23 @@ const handler=NextAuth({
 })
 
 export {handler as GET, handler as POST}
+// pages: {
+  //   signIn: '/auth/signin', // Custom sign-in page
+  // },
+
+//   callbacks: {
+//     async jwt({ token, user }) {
+//       if (user) {
+//         token.id = user.id
+//         token.email = user.email
+//       }
+//       return token
+//     },
+//     async session({ session:{Session}, token }) {
+//       if (token) {
+//         session.id = token.id
+//         session.email = token.email
+//       }
+//       return session
+//     },
+//   },
